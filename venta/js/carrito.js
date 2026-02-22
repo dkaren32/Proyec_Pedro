@@ -20,6 +20,14 @@ function eliminarDelCarrito(titulo) {
 }
 
 function vaciarCarrito() {
+  carrito.forEach(item => {
+    const libro = libros.find(l => l.titulo === item.titulo);
+    if (libro) {
+      libro.stock += item.cantidad;
+    }
+  });
+
+  guardarLibros();
   carrito = [];
   guardarCarrito();
   renderCarrito();
@@ -32,7 +40,6 @@ function renderCarrito() {
   const totalHTML = document.getElementById("totalCarrito");
 
   if (!contenedor || !totalHTML) return;
-
   contenedor.innerHTML = "";
 
   let total = 0;
@@ -227,13 +234,15 @@ function renderHistorial() {
   }
 
   contenedor.innerHTML = "";
-  historial.forEach(compra => {
+   historial.forEach(compra => {
     let productosHTML = "";
-    compra.productos.forEach(prod => {
-      productosHTML += `
-        <li>${prod.titulo} x${prod.cantidad} - $${prod.precio * prod.cantidad}</li>
-      `;
-    });
+    if (compra.productos && compra.productos.length > 0){
+      productosHTML = compra.productos.map(prod => 
+      `<li>${prod.titulo} x${prod.cantidad} - $${prod.precio * prod.cantidad}</li>`
+    ).join('');
+    } else {
+      productosHTML = "<li>No hay detalle disponible</li>";
+    }
 
     contenedor.innerHTML += `
       <div class="card mb-4 p-3 shadow-sm">
@@ -265,6 +274,20 @@ function cerrarExito() {
   window.location.href = "index.html";
 }
 
+function mostrarModal(mensaje) {
+  const modal = document.getElementById("modalMensaje");
+  const texto = document.getElementById("textoModal");
+
+  if (!modal || !texto) return;
+
+  texto.innerText = mensaje;
+  modal.style.display = "flex";
+}
+
+function cerrarModal() {
+  document.getElementById("modalMensaje").style.display = "none";
+}
+
 /* formulari */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -284,11 +307,17 @@ document.addEventListener("DOMContentLoaded", () => {
       const imagen = form.dataset.imagen;
       const confirmacion = form.querySelector('input[type="text"]').value.toUpperCase();
 
-      if (confirmacion !== "SI") return;
+      if (confirmacion !== "SI") {
+        mostrarModal("No se agregó el libro al carrito.");
+        return;
+      }
 
       const libro = libros.find(l => l.titulo === titulo);
       if (!libro) return;
-      if (cantidad > libro.stock) return;
+      if (cantidad > libro.stock){
+        window.location.href = "../error404.html";
+        return;
+      } 
 
       libro.stock -= cantidad;
       guardarLibros();
@@ -303,6 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       guardarCarrito();
       form.reset();
+      mostrarModal("Libro agregado correctamente al carrito.");
     });
   }
 

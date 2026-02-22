@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrito</title>
   <link rel="stylesheet" href="css/estilo.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 </head>
@@ -45,15 +46,18 @@
 
 <main class="container">
   <h2 class="mb-4">🛒 Carrito de Compras</h2>
+  <a href="historial.html" class="btn btn-sm btn-secondary mb-3">
+    Ver Historial
+  </a>
 
   <!-- lista -->
   <div id="listaCarrito" class="carrito-contenedor"></div>
 
   <!-- detalles -->
-  <div class="resumen-carrito">
+  <div class="resumen-carrito mt-3">
     <h3>Total</h3>
      <div id="totalCarrito" class="total-precio">$0</div>
-    <button onclick="realizarPago()">Realizar Pago</button>
+    <button class="btn btn-warning w-100" onclick="realizarPago()">Realizar Pago</button>
   </div>
 </main>
 
