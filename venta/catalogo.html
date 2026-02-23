@@ -62,8 +62,15 @@
 
       <!-- FILA DE TARJETAS DE LIBROS -->
       <div class="row g-3">
+        <!-- TODAS LAS TARGETAS SIGUEN LA MISMA ESTRUCTURA:
+             - IMAGEN
+             - TÍTULO
+             - RATING
+             - PRECIO
+             - STOCK DINÁMICO
+             - ENLACE A DETALLE -->
 
-        <!-- TARJETA 1: EL PRINCIPITO -->
+        <!-- 1 -->
         <div class="col-md-3 col-sm-6">
           <div class="card libro-card">
             <span class="badge bg-danger">OFERTA</span>
@@ -80,18 +87,155 @@
           </div>
         </div>
 
-        <!-- TARJETAS 2 A 10 -->
-        <!-- TODAS SIGUEN LA MISMA ESTRUCTURA:
-             - IMAGEN
-             - TÍTULO
-             - RATING
-             - PRECIO
-             - STOCK DINÁMICO
-             - ENLACE A DETALLE -->
+        <!-- 2 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card libro-card">
+            <span class="badge bg-success">POPULAR</span>
+            <img src="imagenes/1984.jfif" class="card-img-top">
+            <div class="card-body">
+              <h6>1984</h6>
+              <div class="rating">⭐⭐⭐⭐☆</div>
+              <div class="precio">$180</div>
+              <p id="stock-2"></p>
+              <small class="text-muted">12x $15 sin interés</small><br>
+              <span class="envio">Envío gratis</span><br>
+              <a href="libros/libro2.html" class="btn btn-primary btn-sm mt-2">Ver más</a>
+            </div>
+          </div>
+        </div>
 
-        <!-- (Se conserva exactamente tu código sin cambios funcionales) -->
+        <!-- 3 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card libro-card">
+            <img src="imagenes/quijote.jfif" class="card-img-top">
+            <div class="card-body">
+              <h6>Don Quijote</h6>
+              <div class="rating">⭐⭐⭐⭐⭐</div>
+              <div class="precio">$250</div>
+              <p id="stock-3"></p>
+              <small class="text-muted">3x $83 sin interés</small><br>
+              <span class="envio">Envío gratis</span><br>
+              <a href="libros/libro3.html" class="btn btn-primary btn-sm mt-2">Ver más</a>
+            </div>
+          </div>
+        </div>
 
-        <!-- ... TARJETAS 2 A 10 SIN MODIFICAR ... -->
+        <!-- 4 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card libro-card">
+            <img src="imagenes/cien.jfif" class="card-img-top">
+            <div class="card-body">
+              <h6>Cien Años de Soledad</h6>
+              <div class="rating">⭐⭐⭐⭐⭐</div>
+              <div class="precio">$220</div>
+              <p id="stock-4"></p>
+              <small class="text-muted">6x $36 sin interés</small><br>
+              <span class="envio">Envío gratis</span><br>
+              <a href="libros/libro4.html" class="btn btn-primary btn-sm mt-2">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card libro-card">
+            <span class="badge bg-success">POPULAR</span>
+            <img src="imagenes/harry.jfif" class="card-img-top">
+            <div class="card-body">
+              <h6>Harry Potter</h6>
+              <div class="rating">⭐⭐⭐⭐⭐</div>
+              <div class="precio">$300</div>
+              <p id="stock-5"></p>
+              <small class="text-muted">12x $25 sin interés</small><br>
+              <span class="envio">Envío gratis</span><br>
+              <a href="libros/libro5.html" class="btn btn-primary btn-sm mt-2">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card libro-card">
+            <img src="imagenes/hobbit.jfif" class="card-img-top">
+            <div class="card-body">
+              <h6>El Hobbit</h6>
+              <div class="rating">⭐⭐⭐⭐☆</div>
+              <div class="precio">$280</div>
+              <p id="stock-6"></p>
+              <small class="text-muted">6x $46 sin interés</small><br>
+              <span class="envio">Envío gratis</span><br>
+              <a href="libros/libro6.html" class="btn btn-primary btn-sm mt-2">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card libro-card">
+            <span class="badge bg-danger">OFERTA</span>
+            <img src="imagenes/orgullo.jfif" class="card-img-top">
+            <div class="card-body">
+              <h6>Orgullo y Prejuicio</h6>
+              <div class="rating">⭐⭐⭐⭐⭐</div>
+              <div class="precio">$200</div>
+              <p id="stock-7"></p>
+              <small class="text-muted">12x $16 sin interés</small><br>
+              <span class="envio">Envío gratis</span><br>
+              <a href="libros/libro7.html" class="btn btn-primary btn-sm mt-2">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card libro-card">
+            <span class="badge bg-danger">OFERTA</span>
+            <img src="imagenes/dracua.jfif" class="card-img-top">
+            <div class="card-body">
+              <h6>Drácula</h6>
+              <div class="rating">⭐⭐⭐⭐☆</div>
+              <div class="precio">$210</div>
+              <p id="stock-8"></p>
+              <small class="text-muted">3x $70 sin interés</small><br>
+              <span class="envio">Envío gratis</span><br>
+              <a href="libros/libro8.html" class="btn btn-primary btn-sm mt-2">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card libro-card">
+            <span class="badge bg-danger">OFERTA</span>
+            <img src="imagenes/alicia.jfif" class="card-img-top">
+            <div class="card-body">
+              <h6>Alicia en el País de las Maravillas</h6>
+              <div class="rating">⭐⭐⭐⭐⭐</div>
+              <div class="precio">$190</div>
+              <p id="stock-9"></p>
+              <small class="text-muted">12x $15 sin interés</small><br>
+              <span class="envio">Envío gratis</span><br>
+              <a href="libros/libro9.html" class="btn btn-primary btn-sm mt-2">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card libro-card">
+            <span class="badge bg-success">POPULAR</span>
+            <img src="imagenes/franke.jfif" class="card-img-top">
+            <div class="card-body">
+              <h6>Frankenstein</h6>
+              <div class="rating">⭐⭐⭐⭐☆</div>
+              <div class="precio">$230</div>
+              <p id="stock-10"></p>
+              <small class="text-muted">6x $38 sin interés</small><br>
+              <span class="envio">Envío gratis</span><br>
+              <a href="libros/libro10.html" class="btn btn-primary btn-sm mt-2">Ver más</a>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
