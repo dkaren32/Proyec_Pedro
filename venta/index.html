@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto de Venta de Libros</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilo.css"> <!-- LLAMADO DE LA HOJA DE ESTILOS PERSONALIZADA -->
   </head>
   <body>
@@ -10,33 +13,21 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">Librería</a>
-        
-        <!-- BOTON DE MENU PARA LAS PANTALLAS PEQUEÑAS -->
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- BARRA DE NAVEGACIÓN MENÚ -->
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="catalogo.html">Libros</a></li>
+            <li class="nav-item"><a class="nav-link" href="buscar.html">Buscar</a></li>
+            <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito</a></li>
+            <li class="nav-item"><a class="nav-link" href="sitiomapa.html">Mapa del sitio</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a> <!-- ENLACE A LA PAGINA DE INICIO -->
-            </li> 
-            <li class="nav-item">
-              <a class="nav-link" href="catalogo.html">Libros</a> <!-- ENLACE A LA PAGINA DE LIBROS (CATALOGO) -->
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="buscar.html">Buscar</a> <!-- ENLACE A LA PAGINA DE BUSCAR -->
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="carrito.html">Carrito</a> <!-- ENLACE A LA PAGINA DE CARRITO -->
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sitiomapa.html">Mapa del sitio</a> <!-- ENLACE A LA PAGINA DE MAPA DEL SITIO -->
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html"> <!-- ENLACE A LA PAGINA DE INICIO DE SESION -->
-                <img src="imagenes/logout1.png" height="20"> <!-- LOGO/ICONO DE CIERRE DE SESIÓN -->
+              <a class="nav-link" href="login.html">
+                <img src="imagenes/logout1.png" height="20">
               </a>
             </li>
           </ul>
@@ -108,5 +99,7 @@
         © 2026 Librería Online — Todos los derechos reservados
       </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
