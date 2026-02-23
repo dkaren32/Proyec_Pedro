@@ -1,12 +1,13 @@
+/*Arreglo de libros, se utiliza como respaldo si no existen datos en localStorage. */
 const librosOriginal = [
   {
-    id: 1,
-    titulo: "El Principito",
-    autor: "Antoine de Saint-Exupéry",
-    precio: 150,
-    imagen: "./imagenes/principito.jfif",
-    pagina: "libros/libro1.html",
-    stock: 3
+    id: 1,                       // Identificador único del libro
+    titulo: "El Principito",      // Título del libro
+    autor: "Antoine de Saint-Exupéry", // Autor
+    precio: 150,                 // Precio del libro
+    imagen: "./imagenes/principito.jfif", // Ruta de la imagen
+    pagina: "libros/libro1.html", // Página de detalle del libro
+    stock: 3                     // Cantidad disponible en inventario
   },
   {
     id: 2,
@@ -91,8 +92,17 @@ const librosOriginal = [
   }
 ];
 
+/**
+ * Arreglo principal de libros.
+ * Si existen datos guardados en localStorage se cargan,
+ * de lo contrario se utiliza el catálogo original.
+ */
 let libros = JSON.parse(localStorage.getItem("libros")) || librosOriginal;
 
+/**
+ * Guarda el arreglo actual de libros en localStorage.
+ * Convierte el objeto JavaScript a formato JSON.
+ */
 function guardarLibros() {
   localStorage.setItem("libros", JSON.stringify(libros));
 }
