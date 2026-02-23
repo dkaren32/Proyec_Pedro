@@ -1,98 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Hobbit</title>
-  <link rel="stylesheet" href="../css/estilo.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Hobbit</title>  
+    <link rel="stylesheet" href="../css/estilo.css"> <!-- LLAMADO DE LA HOJA DE ESTILOS PERSONALIZADA -->
+  </head>
 
-<body>
-<p id="stock"></p>
-<script>
-  const libro = libros.find(l => l.titulo === "El Hobbit");
-  document.getElementById("stock").innerText =
-    "Stock disponible: " + libro.stock;
-</script>
-<script>
-  localStorage.setItem("ultimoLibro", "El Hobbit");
-  localStorage.setItem("urlLibro", "libros/libro6.html");
-</script>
+  <body>
+    <!-- MENÚ  DE NAVEGACIÓN -->
+    <nav class="menu">
+      <a href="../index.html">Inicio</a>
+      <a href="../catalogo.html">Libros</a>
+      <a href="../buscar.html">Buscar</a>
+      <a href="../carrito.html">Carrito</a>
+      <a href="../sitiomapa.html">Mapa del sitio</a>
+    </nav>
 
-<!-- MENÚ -->
-<nav class="menu">
-  <a href="../index.html">Inicio</a>
-  <a href="../catalogo.html">Libros</a>
-  <a href="../buscar.html">Buscar</a>
-  <a href="../carrito.html">Carrito</a>
-  <a href="../sitiomapa.html">Mapa del sitio</a>
-</nav>
+    <!-- BREADCRUMBS -->
+    <nav class="breadcrumbs">
+      <a href="../index.html">Inicio</a>
+      <span>›</span>
+      <a href="../catalogo.html">Libros</a>
+      <span>›</span>
+      <span>Hobbit</span>
+    </nav>
 
-<nav class="breadcrumbs">
-  <a href="../index.html">Inicio</a>
-  <span>›</span>
-  <a href="../catalogo.html">Libros</a>
-  <span>›</span>
-  <span>Hobbit</span>
-</nav>
+    <!-- CONTENEDOR PRINCIPAL DEL DETALLE DEL LIBRO -->
+    <div class="detalle-container">
 
-<div class="detalle-container">
+      <div class="detalle-card">
 
-  <div class="detalle-card">
+        <div class="detalle-imagen"><!-- Contenedor de la imagen del libro -->
+          <img src="../imagenes/hobbit.jfif" alt="El Hobbit">
+        </div>
 
-    <div class="detalle-imagen">
-      <img src="../imagenes/hobbit.jfif" alt="El Hobbit">
+        
+        <div class="detalle-info"><!-- Información del libro -->
+
+          <h1>El Hobbit</h1><!-- TITULO DEL LIBRO -->
+            <br>
+            <hr>
+            <p id="stock"></p> <!-- STOCK DEL LIBRO -->
+            <br>
+
+          <!-- RATING DEL LIBRO -->
+          <div class="rating">
+            ⭐⭐⭐⭐⭐ <span>(389 reseñas)</span>
+          </div>
+
+          <!-- Etiquetas Principales -->
+          <div class="etiquetas">
+            <span class="tag bestseller">CLÁSICO</span>
+            <span class="tag envio">Envío Gratis</span>
+          </div>
+
+          <!-- CONTENEDOR DE LA DESCRIPCIÓN DEL LIBRO -->
+          <p class="descripcion">
+            Aventura fantástica de Bilbo Bolsón, un hobbit que se ve envuelto
+            en una misión inesperada llena de peligros, criaturas míticas y
+            tesoros legendarios.
+          </p>
+
+          <p><!-- Autor del libro -->
+            <strong>Autor:</strong> J.R.R. Tolkien
+          </p>          
+          
+          <div class="precio-box"><!-- Información de precio -->
+            <div class="precio">$280</div>
+            <div class="cuotas">en 7 cuotas de $40 sin interés</div>
+          </div>
+
+          <!-- FORMULARIO DE COMPRA -->
+          <form id="formCompra" data-titulo="El Hobbit" data-precio="280" data-imagen="imagenes/hobbit.jfif">
+
+            <!-- Campo para seleccionar la cantidad -->
+            <label>Cantidad</label>
+            <input type="number" id="cantidad" min="1" max="5" required>
+
+            <!-- ETIQUETAS Y CAMPOS DE ENTRADA PARA VALIDAR CANTIDAD Y CONFIRMACION DE COMPRA -->
+            <label>Confirmar compra (SI o NO)</label>
+            <input type="text" pattern="SI|NO" required>
+
+            <!-- Botón para agregar al carrito -->
+            <button type="submit" class="btn-comprar">
+              Agregar al carrito
+            </button>
+
+            <!-- Enlace al carrito -->
+            <a href="../carrito.html" class="btn-secundario">
+              Ir al Carrito
+            </a>
+
+          </form>
+
+        </div>
+      </div>
     </div>
 
-    <div class="detalle-info">
-
-      <h1>El Hobbit</h1>
-
-      <div class="rating">
-        ⭐⭐⭐⭐⭐ <span>(389 reseñas)</span>
+    <!-- MODAL QUE INDICA ERROR EN EL STOCK -->
+    <div id="modalMensaje" class="modal-mensaje">
+      <div class="modal-contenido">
+        <p id="textoModal"></p>
+        <button onclick="cerrarModal()">Aceptar</button>
       </div>
-
-      <div class="etiquetas">
-        <span class="tag bestseller">CLÁSICO</span>
-        <span class="tag envio">Envío Gratis</span>
-      </div>
-
-      <p class="descripcion">
-        Aventura fantástica de Bilbo Bolsón, un hobbit que se ve envuelto
-        en una misión inesperada llena de peligros, criaturas míticas y
-        tesoros legendarios.
-      </p>
-
-      <p><strong>Autor:</strong> J.R.R. Tolkien</p>
-      
-      <div class="precio-box">
-        <div class="precio">$280</div>
-        <div class="cuotas">en 7 cuotas de $40 sin interés</div>
-      </div>
-
-
-      <form id="formCompra" data-titulo="El Hobbit" data-precio="280" data-imagen="imagenes/hobbit.jfif">
-
-        <label>Cantidad</label>
-        <input type="number" id="cantidad" min="1" max="5" required>
-
-        <label>Confirmar compra (SI o NO)</label>
-        <input type="text" pattern="SI|NO" required>
-
-        <button type="submit" class="btn-comprar">
-          Agregar al carrito
-        </button>
-
-        <a href="../carrito.html" class="btn-secundario">
-          Ir al Carrito
-        </a>
-
-      </form>
-
     </div>
-  </div>
-</div>
-<script src="../js/libros.js"></script>
-<script src="../js/carrito.js"></script>
-</body>
+
+    <!-- ARCHIVOS JS -->
+    <script src="../js/libros.js"></script>
+    <script src="../js/carrito.js"></script>
+
+    <!-- SCRIPT QUE PERMITE MOSTRAR EL STOCK DISPONIBLE DEL LIBRO  -->
+    <script>
+      const libro = libros.find(l => l.titulo === "El Hobbit");
+      document.getElementById("stock").innerText = "Stock disponible: " + libro.stock;
+    </script>
+
+  </body>
 </html>

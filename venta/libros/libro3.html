@@ -1,101 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Don Quijote</title>
-  <link rel="stylesheet" href="../css/estilo.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don Quijote</title>
+    <link rel="stylesheet" href="../css/estilo.css"> <!-- LLAMADO DE LA HOJA DE ESTILOS PERSONALIZADA -->
+  </head>
 
-<body>
-<p id="stock"></p>
-<script>
-  const libro = libros.find(l => l.titulo === "Don Quijote");
-  document.getElementById("stock").innerText =
-    "Stock disponible: " + libro.stock;
-</script>
-<script>
-  localStorage.setItem("ultimoLibro", "Don Quijote");
-  localStorage.setItem("urlLibro", "libros/libro3.html");
-</script>
+  <body>
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="menu">
+      <a href="../index.html">Inicio</a>
+      <a href="../catalogo.html">Libros</a>
+      <a href="../buscar.html">Buscar</a>
+      <a href="../carrito.html">Carrito</a>
+      <a href="../sitiomapa.html">Mapa del sitio</a>
+    </nav>
+  
+    <!-- BREADCRUMBS -->
+    <nav class="breadcrumbs">
+      <a href="../index.html">Inicio</a>
+      <span>›</span>
+      <a href="../catalogo.html">Libros</a>
+      <span>›</span>
+      <span> Don Quijote </span>
+    </nav>
 
-<!-- MENÚ -->
-<nav class="menu">
-  <a href="../index.html">Inicio</a>
-  <a href="../catalogo.html">Libros</a>
-  <a href="../buscar.html">Buscar</a>
-  <a href="../carrito.html">Carrito</a>
-  <a href="../sitiomapa.html">Mapa del sitio</a>
-</nav>
+    <!-- CONTENEDOR DE LOS DETALLES DEL LIBRO -->
+    <div class="detalle-container">
 
-<nav class="breadcrumbs">
-  <a href="../index.html">Inicio</a>
-  <span>›</span>
-  <a href="../catalogo.html">Libros</a>
-  <span>›</span>
-  <span> Don Quijote </span>
-</nav>
+      <div class="detalle-card">
 
-<div class="detalle-container">
+        <div class="detalle-imagen"> <!-- CONTENEDOR DE LA IMAGEN -->
+          <img src="../imagenes/quijote.jfif" alt="Don Quijote">
+        </div>
 
-  <div class="detalle-card">
+        <div class="detalle-info"><!-- CONTENEDOR DE LA INFORMACIÓN -->
 
-    <div class="detalle-imagen">
-      <img src="../imagenes/quijote.jfif" alt="Don Quijote">
+          <h1>Don Quijote</h1> <!-- TITULO DEL LIBRO -->
+          <br>
+          <hr>
+          <p id="stock"></p> <!-- STOCK DEL LIBRO -->
+          <br>
+
+          <!-- RATING DEL LIBRO -->
+          <div class="rating">
+            ⭐⭐⭐⭐⭐ <span>(132 reseñas)</span>
+          </div>
+
+          <!-- CONTENEDOR DE LAS ETIQUETAS PRINCIPALES -->
+          <div class="etiquetas">
+            <span class="tag envio">Envío Gratis</span>
+          </div>
+
+          <!-- CONTENEDOR DE LA DESCRIPCIÓN DEL LIBRO -->
+          <p class="descripcion">
+            Clásico de la literatura española que narra las aventuras de un
+            caballero idealista y su fiel escudero Sancho Panza.
+          </p>
+
+          <p> <!-- AUTOR DEL LIBRO-->
+            <strong>Autor:</strong> Miguel de Cervantes
+          </p>
+
+          <!-- CONTENEDOR DEL PRECIO DEL LIBRO -->
+          <div class="precio-box">
+            <div class="precio">$250</div>
+            <div class="cuotas">en 5 cuotas de $50 sin interés</div>
+          </div>
+
+          <!-- FORMULARIO PARA AGREGAR EL LIBRO AL CARRITO -->
+          <form id="formCompra" data-titulo="Don Quijote" data-precio="250" data-imagen="imagenes/quijote.jfif">
+
+            <!-- ETIQUETAS Y CAMPOS DE ENTRADA PARA VALIDAR CANTIDAD Y CONFIRMACION DE COMPRA -->
+            <label>Cantidad</label>
+            <input type="number" id="cantidad" min="1" max="5" required>
+
+            <label>Confirmar compra (SI o NO)</label>
+            <input type="text" pattern="SI|NO" required>
+
+            <!-- BOTON PARA ENVIAR FORMULARIO -->
+            <button type="submit" class="btn-comprar">
+              Agregar al carrito
+            </button>
+
+            <!-- ENLACE PARA EL CARRITO -->
+            <a href="../carrito.html" class="btn-secundario">
+              Ir al Carrito
+            </a>
+
+          </form>
+
+        </div>
+      </div>
     </div>
 
-    <div class="detalle-info">
-
-      <h1>Don Quijote</h1>
-
-      <div class="rating">
-        ⭐⭐⭐⭐⭐ <span>(132 reseñas)</span>
+    <!-- MODAL QUE INDICA ERROR EN EL STOCK -->
+    <div id="modalMensaje" class="modal-mensaje">
+      <div class="modal-contenido">
+        <p id="textoModal"></p>
+        <button onclick="cerrarModal()">Aceptar</button>
       </div>
-
-      <div class="etiquetas">
-        <span class="tag envio">Envío Gratis</span>
-      </div>
-
-      <p class="descripcion">
-        Clásico de la literatura española que narra las aventuras de un
-        caballero idealista y su fiel escudero Sancho Panza.
-      </p>
-
-      <p><strong>Autor:</strong> Miguel de Cervantes</p>
-
-      <div class="precio-box">
-        <div class="precio">$250</div>
-        <div class="cuotas">en 5 cuotas de $50 sin interés</div>
-      </div>
-
-      <form id="formCompra" data-titulo="Don Quijote" data-precio="250" data-imagen="imagenes/quijote.jfif">
-
-        <label>Cantidad</label>
-        <input type="number" id="cantidad" min="1" max="5" required>
-
-        <label>Confirmar compra (SI o NO)</label>
-        <input type="text" pattern="SI|NO" required>
-
-        <button type="submit" class="btn-comprar">
-          Agregar al carrito
-        </button>
-
-        <a href="../carrito.html" class="btn-secundario">
-          Ir al Carrito
-        </a>
-
-      </form>
-
     </div>
-  </div>
-</div>
-<script src="../js/libros.js"></script>
-<script src="../js/carrito.js"></script>
-<div id="modalMensaje" class="modal-mensaje">
-  <div class="modal-contenido">
-    <p id="textoModal"></p>
-    <button onclick="cerrarModal()">Aceptar</button>
-  </div>
-</div>
-</body>
+
+    <!-- ARCHIVOS JS -->
+    <script src="../js/libros.js"></script> <!-- LLAMADO DE CODIGO LIBROS.JS-->
+    <script src="../js/carrito.js"></script> <!-- LLAMADO DE CODIGO LIBROS.JS-->
+    <!-- SCRIPT QUE PERMITE MOSTRAR EL STOCK DISPONIBLE DEL LIBRO  -->
+    <script>
+      const libro = libros.find(l => l.titulo === "Don Quijote");
+      document.getElementById("stock").innerText = "Stock disponible: " + libro.stock;
+    </script>
+  
+  </body>
 </html>

@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- CONFIGURACIÓN DE CARACTERES -->
   <meta charset="UTF-8">
+
+  <!-- CONFIGURACIÓN RESPONSIVE PARA DISPOSITIVOS MÓVILES -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TÍTULO DE LA PESTAÑA -->
   <title>Mapa del sitio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- LLAMADO A BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+
+  <!-- HOJA DE ESTILOS PERSONALIZADA -->
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body class="bg-light">
 
+<!-- BARRA DE NAVEGACIÓN -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
   <div class="container">
+
+    <!-- LOGO / NOMBRE DEL SITIO -->
     <a class="navbar-brand fw-bold" href="index.html">Librería</a>
 
+    <!-- BOTÓN RESPONSIVE -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- MENÚ DE NAVEGACIÓN -->
     <div class="collapse navbar-collapse" id="menu">
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="index.html">Inicio</a>
@@ -27,22 +44,30 @@
         <a class="nav-link active" href="sitiomapa.html">Mapa del sitio</a>
       </div>
     </div>
+
   </div>
 </nav>
 
+<!-- CONTENEDOR PRINCIPAL -->
 <div class="container py-5">
 
+  <!-- TÍTULO PRINCIPAL -->
   <div class="text-center mb-4">
     <h1 class="fw-bold">Mapa del sitio</h1>
   </div>
 
+  <!-- CONTENEDOR DE TARJETAS -->
   <div class="row g-4">
 
+    <!-- SECCIONES PRINCIPALES -->
     <div class="col-md-6">
       <div class="card shadow-sm border-0 h-100">
         <div class="card-body">
+
+          <!-- TÍTULO DE LA TARJETA -->
           <h5 class="card-title fw-bold mb-3">Secciones principales</h5>
 
+          <!-- LISTA DE ENLACES -->
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <a href="index.html" class="text-decoration-none">Inicio</a>
@@ -57,16 +82,20 @@
               <a href="carrito.html" class="text-decoration-none">Carrito de compras</a>
             </li>
           </ul>
+
         </div>
       </div>
     </div>
 
- 
+    <!-- LISTA DE LIBROS DISPONIBLES -->
     <div class="col-md-6">
       <div class="card shadow-sm border-0 h-100">
         <div class="card-body">
+
+          <!-- TÍTULO DE LA TARJETA -->
           <h5 class="card-title fw-bold mb-3">Libros disponibles</h5>
 
+          <!-- LISTA DE LIBROS CON ENLACES -->
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><a href="libros/libro1.html" class="text-decoration-none">El Principito</a></li>
             <li class="list-group-item"><a href="libros/libro2.html" class="text-decoration-none">1984</a></li>
@@ -79,6 +108,7 @@
             <li class="list-group-item"><a href="libros/libro9.html" class="text-decoration-none">Alicia en el País de las Maravillas</a></li>
             <li class="list-group-item"><a href="libros/libro10.html" class="text-decoration-none">Frankenstein</a></li>
           </ul>
+
         </div>
       </div>
     </div>
@@ -86,14 +116,17 @@
   </div>
 </div>
 
+<!-- PIE DE PÁGINA -->
 <footer class="footer">
   <div class="footer-contenido">
 
+    <!-- DESCRIPCIÓN -->
     <div class="footer-seccion">
       <h3>Librería Online</h3>
       <p>Tu tienda de libros favorita. Encuentra clásicos, novelas, ciencia ficción y más.</p>
     </div>
 
+    <!-- INFORMACIÓN DE CONTACTO -->
     <div class="footer-seccion">
       <h3>Atención al Cliente</h3>
       <p>📧 soporte@libreria.com</p>
@@ -101,20 +134,24 @@
       <p>Lun - Vie / 9:00 - 18:00</p>
     </div>
 
+    <!-- REDES SOCIALES -->
     <div class="footer-seccion">
       <h3>Síguenos</h3>
-      <p>Facebook</p>
-      <p>Instagram</p>
-      <p>Twitter</p>
+      <p><img src="../venta/imagenes/Facebook.png" width="25px"> Libreria MIJAK</p>
+      <p><img src="../venta/imagenes/Instagram.png" width="25px"> @MIJAK</p>
+      <p><img src="../venta/imagenes/X-Twitter.avif" width="25px"> @MIJAK_LIB</p>
     </div>
 
   </div>
 
+  <!-- DERECHOS DE AUTOR -->
   <div class="footer-copy">
     © 2026 Librería Online — Todos los derechos reservados
   </div>
 </footer>
 
+<!-- SCRIPT DE BOOTSTRAP -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

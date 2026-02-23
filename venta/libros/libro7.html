@@ -1,96 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orgullo y Prejuicio</title>
-  <link rel="stylesheet" href="../css/estilo.css">
-</head>
+  <head>
+    <!-- CONFIGURACIÓN BÁSICA DEL DOCUMENTO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orgullo y Prejuicio</title>
 
-<body>
-<p id="stock"></p>
-<script>
-  const libro = libros.find(l => l.titulo === "Orgullo y Prejuicio");
-  document.getElementById("stock").innerText =
-    "Stock disponible: " + libro.stock;
-</script>
-<script>
-  localStorage.setItem("ultimoLibro", "Orgullo y Prejuicio");
-  localStorage.setItem("urlLibro", "libros/libro7.html");
-</script>
+    <!-- LLAMADO DE LA HOJA DE ESTILOS PERSONALIZADA -->
+    <link rel="stylesheet" href="../css/estilo.css">
+  </head>
 
-<nav class="menu">
-  <a href="../index.html">Inicio</a>
-  <a href="../catalogo.html">Libros</a>
-  <a href="../buscar.html">Buscar</a>
-  <a href="../carrito.html">Carrito</a>
-  <a href="../sitiomapa.html">Mapa del sitio</a>
-</nav>
+  <body>
 
-<nav class="breadcrumbs">
-  <a href="../index.html">Inicio</a>
-  <span>›</span>
-  <a href="../catalogo.html">Libros</a>
-  <span>›</span>
-  <span>Orgullo y Prejuicio</span>
-</nav>
+    <!-- BARRA DE NAVEGACIÓN PRINCIPAL -->
+    <nav class="menu">
+      <a href="../index.html">Inicio</a>
+      <a href="../catalogo.html">Libros</a>
+      <a href="../buscar.html">Buscar</a>
+      <a href="../carrito.html">Carrito</a>
+      <a href="../sitiomapa.html">Mapa del sitio</a>
+    </nav>
 
-<div class="detalle-container">
+    <!-- BREADCRUMBS (RUTA DE NAVEGACIÓN) -->
+    <nav class="breadcrumbs">
+      <a href="../index.html">Inicio</a>
+      <span>›</span>
+      <a href="../catalogo.html">Libros</a>
+      <span>›</span>
+      <span>Orgullo y Prejuicio</span>
+    </nav>
 
-  <div class="detalle-card">
+    <!-- CONTENEDOR PRINCIPAL DEL DETALLE DEL LIBRO -->
+    <div class="detalle-container">
 
-    <div class="detalle-imagen">
-      <img src="../imagenes/orgullo.jfif" alt="Orgullo y Prejuicio">
+      <div class="detalle-card">
+
+        <!-- CONTENEDOR DE LA IMAGEN DEL LIBRO -->
+        <div class="detalle-imagen">
+          <img src="../imagenes/orgullo.jfif" alt="Orgullo y Prejuicio">
+        </div>
+
+        <!-- CONTENEDOR DE LA INFORMACIÓN DEL LIBRO -->
+        <div class="detalle-info">
+
+          <!-- TÍTULO DEL LIBRO -->
+          <h1>Orgullo y Prejuicio</h1>
+          <br>
+          <hr>
+
+          <!-- MUESTRA DEL STOCK DISPONIBLE -->
+          <p id="stock"></p>
+          <br>
+
+          <!-- RATING DEL LIBRO -->
+          <div class="rating">
+            ⭐⭐⭐⭐⭐ <span>(512 reseñas)</span>
+          </div>
+
+          <!-- ETIQUETAS DEL PRODUCTO -->
+          <div class="etiquetas">
+            <span class="tag oferta">OFERTA</span>
+            <span class="tag envio">Envío Gratis</span>
+          </div>
+
+          <!-- DESCRIPCIÓN DEL LIBRO -->
+          <p class="descripcion">
+            Clásica novela romántica de Jane Austen que explora el amor,
+            las diferencias sociales y los prejuicios en la Inglaterra del siglo XIX,
+            a través de la inolvidable historia de Elizabeth Bennet.
+          </p>
+
+          <!-- AUTOR DEL LIBRO -->
+          <p>
+            <strong>Autor:</strong> Jane Austen
+          </p>
+
+          <!-- CONTENEDOR DEL PRECIO -->
+          <div class="precio-box">
+            <div class="precio">$200</div>
+            <div class="cuotas">en 5 cuotas de $40 sin interés</div>
+          </div>
+
+          <!-- FORMULARIO PARA AGREGAR EL LIBRO AL CARRITO -->
+          <form id="formCompra"
+                data-titulo="Orgullo y Prejuicio"
+                data-precio="200"
+                data-imagen="imagenes/orgullo.jfif">
+
+            <!-- CAMPO PARA INGRESAR LA CANTIDAD -->
+            <label>Cantidad</label>
+            <input type="number" id="cantidad" min="1" max="5" required>
+
+            <!-- CONFIRMACIÓN DE COMPRA -->
+            <label>Confirmar compra (SI o NO)</label>
+            <input type="text" pattern="SI|NO" required>
+
+            <!-- BOTÓN PARA AGREGAR AL CARRITO -->
+            <button type="submit" class="btn-comprar">
+              Agregar al carrito
+            </button>
+
+            <!-- ENLACE PARA IR AL CARRITO -->
+            <a href="../carrito.html" class="btn-secundario">
+              Ir al Carrito
+            </a>
+
+          </form>
+
+        </div>
+      </div>
     </div>
 
-    <div class="detalle-info">
-
-      <h1>Orgullo y Prejuicio</h1>
-
-      <div class="rating">
-        ⭐⭐⭐⭐⭐ <span>(512 reseñas)</span>
+    <!-- MODAL QUE INDICA ERROR EN EL STOCK -->
+    <div id="modalMensaje" class="modal-mensaje">
+      <div class="modal-contenido">
+        <p id="textoModal"></p>
+        <button onclick="cerrarModal()">Aceptar</button>
       </div>
-
-      <div class="etiquetas">
-        <span class="tag oferta">OFERTA</span>
-        <span class="tag envio">Envío Gratis</span>
-      </div>
-
-      <p class="descripcion">
-        Clásica novela romántica de Jane Austen que explora el amor,
-        las diferencias sociales y los prejuicios en la Inglaterra del siglo XIX,
-        a través de la inolvidable historia de Elizabeth Bennet.
-      </p>
-
-      <p><strong>Autor:</strong> Jane Austen</p>
-
-      <div class="precio-box">
-        <div class="precio">$200</div>
-        <div class="cuotas">en 5 cuotas de $40 sin interés</div>
-      </div>
-
-      <form id="formCompra" data-titulo="Orgullo y Prejuicio" data-precio="200" data-imagen="imagenes/orgullo.jfif">
-
-        <label>Cantidad</label>
-        <input type="number" id="cantidad" min="1" max="5" required>
-
-        <label>Confirmar compra (SI o NO)</label>
-        <input type="text" pattern="SI|NO" required>
-
-        <button type="submit" class="btn-comprar">
-          Agregar al carrito
-        </button>
-
-        <a href="../carrito.html" class="btn-secundario">
-          Ir al Carrito
-        </a>
-
-      </form>
-
     </div>
-  </div>
-</div>
-<script src="../js/libros.js"></script>
-<script src="../js/carrito.js"></script>
-</body>
+
+
+    <!-- ARCHIVOS JAVASCRIPT -->
+    <script src="../js/libros.js"></script> <!-- CONTIENE EL ARREGLO DE LIBROS -->
+    <script src="../js/carrito.js"></script> <!-- MANEJO DEL CARRITO DE COMPRAS -->
+
+    <!-- SCRIPT QUE MUESTRA EL STOCK DISPONIBLE DEL LIBRO -->
+    <script>
+      const libro = libros.find(l => l.titulo === "Orgullo y Prejuicio");
+      document.getElementById("stock").innerText =
+        "Stock disponible: " + libro.stock;
+    </script>
+
+  </body>
 </html>

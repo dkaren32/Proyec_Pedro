@@ -1,100 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frankenstein</title>
-  <link rel="stylesheet" href="../css/estilo.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frankenstein</title>
+    <link rel="stylesheet" href="../css/estilo.css"> <!-- LLAMADO DE LA HOJA DE ESTILOS PERSONALIZADA -->
+  </head>
 
-<body>
-<p id="stock"></p>
-<script>
-  const libro = libros.find(l => l.titulo === "Frankenstein");
-  document.getElementById("stock").innerText =
-    "Stock disponible: " + libro.stock;
-</script>
-<script>
-  localStorage.setItem("ultimoLibro", "Frankenstein");
-  localStorage.setItem("urlLibro", "libros/libro10.html");
-</script>
+  <body>
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="menu">
+      <a href="../index.html">Inicio</a>
+      <a href="../catalogo.html">Libros</a>
+      <a href="../buscar.html">Buscar</a>
+      <a href="../carrito.html">Carrito</a>
+      <a href="../sitiomapa.html">Mapa del sitio</a>
+    </nav>
+  
+    <!-- BREADCRUMBS -->
+    <nav class="breadcrumbs">
+      <a href="../index.html">Inicio</a>
+      <span>›</span>
+      <a href="../catalogo.html">Libros</a>
+      <span>›</span>
+      <span>Frankenstein</span>
+    </nav>
 
-<nav class="menu">
-  <a href="../index.html">Inicio</a>
-  <a href="../catalogo.html">Libros</a>
-  <a href="../buscar.html">Buscar</a>
-  <a href="../carrito.html">Carrito</a>
-  <a href="../sitiomapa.html">Mapa del sitio</a>
-</nav>
+    <!-- CONTENEDOR DE LOS DETALLES DEL LIBRO -->
+    <div class="detalle-container">
 
-<nav class="breadcrumbs">
-  <a href="../index.html">Inicio</a>
-  <span>›</span>
-  <a href="../catalogo.html">Libros</a>
-  <span>›</span>
-  <span>Frankenstein</span>
-</nav>
+      <div class="detalle-card">
 
-<div class="detalle-container">
+        <!-- CONTENEDOR DE LA IMAGEN -->
+        <div class="detalle-imagen">
+          <img src="../imagenes/franke.jfif" alt="Frankenstein">
+        </div>
 
-  <div class="detalle-card">
+        <!-- CONTENEDOR DE LA INFORMACIÓN -->
+        <div class="detalle-info">
 
-    <div class="detalle-imagen">
-      <img src="../imagenes/franke.jfif" alt="Frankenstein">
+          <h1>Frankenstein</h1> <!-- TÍTULO DEL LIBRO -->
+          <br>
+          <hr>
+          <p id="stock"></p> <!-- STOCK DEL LIBRO -->
+          <br>
+
+          <!-- RATING DEL LIBRO -->
+          <div class="rating">
+            ⭐⭐⭐⭐⭐ <span>(689 reseñas)</span>
+          </div>
+
+          <!-- CONTENEDOR DE LAS ETIQUETAS PRINCIPALES -->
+          <div class="etiquetas">
+            <span class="tag venta">MAS VENDIDO</span>
+            <span class="tag envio">Envío Gratis</span>
+          </div>
+
+          <!-- CONTENEDOR DE LA DESCRIPCIÓN DEL LIBRO -->
+          <p class="descripcion">
+            Novela emblemática de Mary Shelley considerada una de las obras
+            fundacionales de la ciencia ficción. La historia explora los
+            límites de la ciencia, la ambición humana y las profundas
+            consecuencias de desafiar las leyes naturales mediante la
+            creación de vida artificial.
+          </p>
+
+          <p> <!-- AUTOR DEL LIBRO -->
+            <strong>Autor:</strong> Mary Shelley
+          </p>
+
+          <!-- CONTENEDOR DEL PRECIO DEL LIBRO -->
+          <div class="precio-box">
+            <div class="precio">$230</div>
+            <div class="cuotas">en 6 cuotas de $38.33 sin interés</div>
+          </div>
+
+          <!-- FORMULARIO PARA AGREGAR EL LIBRO AL CARRITO -->
+          <form id="formCompra" data-titulo="Frankenstein" data-precio="230" data-imagen="imagenes/franke.jfif">
+
+            <!-- ETIQUETAS Y CAMPOS DE ENTRADA PARA VALIDAR CANTIDAD Y CONFIRMACIÓN DE COMPRA -->
+            <label>Cantidad</label>
+            <input type="number" id="cantidad" min="1" max="5" required>
+
+            <label>Confirmar compra (SI o NO)</label>
+            <input type="text" pattern="SI|NO" required>
+
+            <!-- BOTÓN PARA ENVIAR EL FORMULARIO -->
+            <button type="submit" class="btn-comprar">
+              Agregar al carrito
+            </button>
+
+            <!-- ENLACE PARA IR AL CARRITO -->
+            <a href="../carrito.html" class="btn-secundario">
+              Ir al Carrito
+            </a>
+
+          </form>
+
+        </div>
+      </div>
     </div>
 
-    <div class="detalle-info">
-
-      <h1>Frankenstein</h1>
-
-      <div class="rating">
-        ⭐⭐⭐⭐⭐ <span>(689 reseñas)</span>
+    <!-- MODAL QUE INDICA ERROR EN EL STOCK -->
+    <div id="modalMensaje" class="modal-mensaje">
+      <div class="modal-contenido">
+        <p id="textoModal"></p>
+        <button onclick="cerrarModal()">Aceptar</button>
       </div>
-
-      <div class="etiquetas">
-        <span class="tag venta">MAS VENDIDO</span>
-        <span class="tag envio">Envío Gratis</span>
-      </div>
-
-      <p class="descripcion">
-        Novela emblemática de Mary Shelley considerada una de las obras
-        fundacionales de la ciencia ficción. La historia explora los
-        límites de la ciencia, la ambición humana y las profundas
-        consecuencias de desafiar las leyes naturales mediante la
-        creación de vida artificial.
-      </p>
-
-      <p><strong>Autor:</strong> Mary Shelley</p>
-
-      <div class="precio-box">
-        <div class="precio">$230</div>
-        <div class="cuotas">en 6 cuotas de $38.33 sin interés</div>
-      </div>
-
-      
-      <form id="formCompra" data-titulo="Frankenstein" data-precio="230" data-imagen="imagenes/franke.jfif">
-
-        <label>Cantidad</label>
-        <input type="number" id="cantidad" min="1" max="5" required>
-
-        <label>Confirmar compra (SI o NO)</label>
-        <input type="text" pattern="SI|NO" required>
-
-        <button type="submit" class="btn-comprar">
-          Agregar al carrito
-        </button>
-
-        <a href="../carrito.html" class="btn-secundario">
-          Ir al Carrito
-        </a>
-
-      </form>
-
     </div>
-  </div>
-</div>
-<script src="../js/libros.js"></script>
-<script src="../js/carrito.js"></script>
-</body>
+
+    <!-- ARCHIVOS JS -->
+    <script src="../js/libros.js"></script> <!-- LLAMADO DE CÓDIGO LIBROS.JS -->
+    <script src="../js/carrito.js"></script> <!-- LLAMADO DE CÓDIGO CARRITO.JS -->
+
+    <!-- SCRIPT QUE PERMITE MOSTRAR EL STOCK DISPONIBLE DEL LIBRO -->
+    <script>
+      const libro = libros.find(l => l.titulo === "Frankenstein");
+      document.getElementById("stock").innerText = "Stock disponible: " + libro.stock;
+    </script>
+  
+  </body>
 </html>
-

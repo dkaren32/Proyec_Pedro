@@ -1,97 +1,115 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>El Principito</title>
-  <link rel="stylesheet" href="../css/estilo.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>El Principito</title>
+    <link rel="stylesheet" href="../css/estilo.css"> <!-- LLAMADO DE LA HOJA DE ESTILOS PERSONALIZADA -->
+  </head>
 
-<body>
-<p id="stock"></p>
-<script>
-  const libro = libros.find(l => l.titulo === "El Principito");
-  document.getElementById("stock").innerText =
-    "Stock disponible: " + libro.stock;
-</script>
-<script>
-  localStorage.setItem("ultimoLibro", "El Principito");
-  localStorage.setItem("urlLibro", "libros/libro1.html");
-</script>
+  <body>
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="menu">
+      <a href="../index.html">Inicio</a>
+      <a href="../catalogo.html">Libros</a>
+      <a href="../buscar.html">Buscar</a>
+      <a href="../carrito.html">Carrito</a>
+      <a href="../sitiomapa.html">Mapa del sitio</a>
+    </nav>
 
-<!-- MENÚ -->
-<nav class="menu">
-  <a href="../index.html">Inicio</a>
-  <a href="../catalogo.html">Libros</a>
-  <a href="../buscar.html">Buscar</a>
-  <a href="../carrito.html">Carrito</a>
-  <a href="../sitiomapa.html">Mapa del sitio</a>
-</nav>
+    <!-- BREADCRUMBS -->
+    <nav class="breadcrumbs">
+      <a href="../index.html">Inicio</a>
+      <span>›</span>
+      <a href="../catalogo.html">Libros</a>
+      <span>›</span>
+      <span>El Principito</span>
+    </nav>
 
-<nav class="breadcrumbs">
-  <a href="../index.html">Inicio</a>
-  <span>›</span>
-  <a href="../catalogo.html">Libros</a>
-  <span>›</span>
-  <span>El Principito</span>
-</nav>
+    <!-- CONTENEDOR DE LOS DETALLES DEL LIBRO -->
+    <div class="detalle-container">
+      <div class="detalle-card">
+        <div class="detalle-imagen"> <!-- CONTENEDOR DE LA IMAGEN -->
+          <img src="../imagenes/principito.jfif" alt="El Principito">
+        </div>
 
-<div class="detalle-container">
+        <div class="detalle-info"> <!-- CONTENEDOR DE LA INFORMACIÓN -->
+          <h1>El Principito</h1> <!-- TITULO DEL LIBRO -->
+          <br>
+          <hr>
+          <br>
+          <p id="stock"></p> <!-- STOCK DEL LIBRO -->
+          <br>
 
-  <div class="detalle-card">
-    <div class="detalle-imagen">
-      <img src="../imagenes/principito.jfif" alt="El Principito">
+          <!-- CONTENEDOR DE LAS ETIQUETAS PRINCIPALES -->
+          <div class="etiquetas">
+            <span class="tag oferta">OFERTA</span>
+            <span class="tag envio">Envío Gratis</span>
+            <span class="tag stock">Últimas unidades</span>
+          </div>
+
+          <!-- CONTENEDOR DE LA DESCRIPCIÓN DEL LIBRO -->
+          <p class="descripcion">
+            Obra de Antoine de Saint-Exupéry que reflexiona sobre la vida,
+            la amistad y el amor desde una mirada infantil.
+          </p>
+
+          <br>
+
+          <p> <!-- AUTOR DEL LIBRO-->
+            <strong>Autor:</strong> Antoine de Saint-Exupéry
+          </p>
+          
+          <!-- CONTENEDOR DEL PRECIO DEL LIBRO -->
+          <div class="precio-box">
+            <div class="precio">$150</div>
+            <div class="cuotas">en 3 cuotas de $50 sin interés</div>
+          </div>
+
+          <!-- RATING DEL LIBRO -->
+          <div class="rating">
+            ⭐⭐⭐⭐⭐ <span>(69 reseñas)</span>
+          </div>
+
+          <!-- FORMULARIO PARA AGREGAR EL LIBRO AL CARRITO -->
+          <form id="formCompra" data-titulo="El Principito" data-precio="150" data-imagen="imagenes/principito.jfif">
+
+            <!-- ETIQUETAS Y CAMPOS DE ENTRADA PARA VALIDAR CANTIDAD Y CONFIRMACION DE COMPRA -->
+            <label>Cantidad</label>
+            <input type="number" id="cantidad" min="1" max="5" required>
+
+            <label>Confirmar compra (SI / NO)</label>
+            <input type="text" pattern="SI|NO" required>
+
+            <!-- BOTON PARA ENVIAR FORMULARIO -->
+            <button type="submit" class="btn-comprar">
+              Agregar al carrito
+            </button>
+
+            <!-- ENLACE PARA EL CARRITO -->
+            <a href="../carrito.html" class="btn-secundario">
+              Ir al Carrito
+            </a>
+          </form>
+        </div>
+      </div>
     </div>
 
-    <!-- INFO -->
-    <div class="detalle-info">
-
-      <h1>El Principito</h1>
-      <br>
-<hr>
-      <div class="etiquetas">
-        <span class="tag oferta">OFERTA</span>
-        <span class="tag envio">Envío Gratis</span>
-        <span class="tag stock">Últimas unidades</span>
+    <!-- MODAL QUE INDICA ERROR EN EL STOCK -->
+    <div id="modalMensaje" class="modal-mensaje">
+      <div class="modal-contenido">
+        <p id="textoModal"></p>
+        <button onclick="cerrarModal()">Aceptar</button>
       </div>
-
-      <p class="descripcion">
-        Obra de Antoine de Saint-Exupéry que reflexiona sobre la vida,
-        la amistad y el amor desde una mirada infantil.
-      </p>
-      <br>
-      <p><strong>Autor:</strong> Antoine de Saint-Exupéry</p>
-      
-      <div class="precio-box">
-        <div class="precio">$150</div>
-        <div class="cuotas">en 3 cuotas de $50 sin interés</div>
-      </div>
-
-      <div class="rating">
-        ⭐⭐⭐⭐⭐ <span>(69 reseñas)</span>
-      </div>
-
-      <form id="formCompra" data-titulo="El Principito" data-precio="150" data-imagen="imagenes/principito.jfif">
-
-        <label>Cantidad</label>
-        <input type="number" id="cantidad" min="1" max="5" required>
-
-        <label>Confirmar compra (SI / NO)</label>
-        <input type="text" pattern="SI|NO" required>
-
-        <button type="submit" class="btn-comprar">
-          Agregar al carrito
-        </button>
-
-        <a href="../carrito.html" class="btn-secundario">
-          Ir al Carrito
-        </a>
-
-      </form>
-
     </div>
-  </div>
-</div>
-<script src="../js/libros.js"></script>
-<script src="../js/carrito.js"></script>
-</body>
+
+    <!-- ARCHIVOS JS -->
+    <script src="../js/libros.js"></script> <!-- LLAMADO DE CODIGO JS -->
+    <script src="../js/carrito.js"></script> <!-- LLAMADO DE CODIGO JS -->
+    <!-- SCRIPT QUE PERMITE MOSTRAR EL STOCK DISPONIBLE DEL LIBRO  -->
+    <script>
+      const libro = libros.find(l => l.titulo === "El Principito");
+      document.getElementById("stock").innerText = "Stock disponible: " + libro.stock;
+    </script>
+    
+  </body>
 </html>

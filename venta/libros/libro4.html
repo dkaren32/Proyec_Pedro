@@ -1,95 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cien Años de Soledad</title>
-  <link rel="stylesheet" href="../css/estilo.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cien Años de Soledad</title>
+    <link rel="stylesheet" href="../css/estilo.css">  <!-- LLAMADO DE LA HOJA DE ESTILOS PERSONALIZADA -->
+  </head>
 <body>
-<p id="stock"></p>
-<script>
-  const libro = libros.find(l => l.titulo === "Cien Años de Soledad");
-  document.getElementById("stock").innerText =
-    "Stock disponible: " + libro.stock;
-</script>
-<script>
-  localStorage.setItem("ultimoLibro", "Cien Años de Soledad");
-  localStorage.setItem("urlLibro", "libros/libro4.html");
-</script>
+  <!-- BARRA DE NAVEGACIÓN -->
+  <nav class="menu">
+    <a href="../index.html">Inicio</a>
+    <a href="../catalogo.html">Libros</a>
+    <a href="../buscar.html">Buscar</a>
+    <a href="../carrito.html">Carrito</a>
+    <a href="../sitiomapa.html">Mapa del sitio</a>
+  </nav>
 
-<!-- MENÚ -->
-<nav class="menu">
-  <a href="../index.html">Inicio</a>
-  <a href="../catalogo.html">Libros</a>
-  <a href="../buscar.html">Buscar</a>
-  <a href="../carrito.html">Carrito</a>
-  <a href="../sitiomapa.html">Mapa del sitio</a>
-</nav>
+  <!-- BREADCRUMBS -->
+  <nav class="breadcrumbs">
+    <a href="../index.html">Inicio</a>
+    <span>›</span>
+    <a href="../catalogo.html">Libros</a>
+    <span>›</span>
+    <span> Cien Años de Soledad </span>
+  </nav>
 
-<nav class="breadcrumbs">
-  <a href="../index.html">Inicio</a>
-  <span>›</span>
-  <a href="../catalogo.html">Libros</a>
-  <span>›</span>
-  <span> Cien Años de Soledad </span>
-</nav>
+  <!-- CONTENEDOR DE LOS DETALLES DEL LIBRO -->
+  <div class="detalle-container">
 
-<div class="detalle-container">
+    <div class="detalle-card">
 
-  <div class="detalle-card">
-
-    <div class="detalle-imagen">
-      <img src="../imagenes/cien.jfif" alt="Cien Años de Soledad">
-    </div>
-
-    <div class="detalle-info">
-
-      <h1>Cien Años de Soledad</h1>
-
-      <div class="rating">
-        ⭐⭐⭐⭐⭐ <span>(214 reseñas)</span>
+      <div class="detalle-imagen"> <!-- CONTENEDOR DE LA IMAGEN -->
+        <img src="../imagenes/cien.jfif" alt="Cien Años de Soledad">
       </div>
 
-      <div class="etiquetas">
-        <span class="tag envio">Envío Gratis</span>
+      <div class="detalle-info"> <!-- CONTENEDOR DE LA INFORMACIÓN -->
+
+        <h1>Cien Años de Soledad</h1><!-- TITULO DEL LIBRO -->
+        <br>
+        <hr>
+        <p id="stock"></p> <!-- STOCK DEL LIBRO -->
+        <br>
+
+        <!-- RATING DEL LIBRO -->
+        <div class="rating">
+          ⭐⭐⭐⭐⭐ <span>(214 reseñas)</span>
+        </div>
+
+        <!-- CONTENEDOR DE LAS ETIQUETAS PRINCIPALES -->
+        <div class="etiquetas">
+          <span class="tag envio">Envío Gratis</span>
+        </div>
+
+        <!-- CONTENEDOR DE LA DESCRIPCIÓN DEL LIBRO -->
+        <p class="descripcion">
+          Obra emblemática del realismo mágico que relata la historia de la
+          familia Buendía a lo largo de varias generaciones en Macondo.
+        </p>
+
+        <p> <!-- AUTOR DEL LIBRO-->
+          <strong>Autor:</strong> Gabriel García Márquez
+        </p>
+
+        <div class="precio-box"> <!-- CONTENEDOR DEL PRECIO DEL LIBRO -->
+          <div class="precio">$220</div>
+          <div class="cuotas">en 4 cuotas de $55 sin interés</div>
+        </div>
+
+         <!-- FORMULARIO PARA AGREGAR EL LIBRO AL CARRITO -->
+        <form id="formCompra" data-titulo="Cien Años de Soledad" data-precio="220" data-imagen="imagenes/cien.jfif">
+
+          <!-- ETIQUETAS Y CAMPOS DE ENTRADA PARA VALIDAR CANTIDAD Y CONFIRMACION DE COMPRA -->
+          <label>Cantidad</label>
+          <input type="number" id="cantidad" min="1" max="5" required>
+
+          <label>Confirmar compra (SI o NO)</label>
+          <input type="text" pattern="SI|NO" required>
+
+          <!-- BOTON PARA ENVIAR FORMULARIO -->
+          <button type="submit" class="btn-comprar">
+            Agregar al carrito
+          </button>
+
+          <!-- ENLACE PARA EL CARRITO -->
+          <a href="../carrito.html" class="btn-secundario">
+            Ir al Carrito
+          </a>
+
+        </form>
+
       </div>
-
-      <p class="descripcion">
-        Obra emblemática del realismo mágico que relata la historia de la
-        familia Buendía a lo largo de varias generaciones en Macondo.
-      </p>
-
-      <p><strong>Autor:</strong> Gabriel García Márquez</p>
-
-      <div class="precio-box">
-        <div class="precio">$220</div>
-        <div class="cuotas">en 4 cuotas de $55 sin interés</div>
-      </div>
-
-      <form id="formCompra" data-titulo="Cien Años de Soledad" data-precio="220" data-imagen="imagenes/cien.jfif">
-
-        <label>Cantidad</label>
-        <input type="number" id="cantidad" min="1" max="5" required>
-
-        <label>Confirmar compra (SI o NO)</label>
-        <input type="text" pattern="SI|NO" required>
-
-        <button type="submit" class="btn-comprar">
-          Agregar al carrito
-        </button>
-
-        <a href="../carrito.html" class="btn-secundario">
-          Ir al Carrito
-        </a>
-
-      </form>
-
     </div>
   </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../js/libros.js"></script>
-<script src="../js/carrito.js"></script>
+
+  <!-- MODAL QUE INDICA ERROR EN EL STOCK -->
+  <div id="modalMensaje" class="modal-mensaje">
+    <div class="modal-contenido">
+      <p id="textoModal"></p>
+      <button onclick="cerrarModal()">Aceptar</button>
+    </div>
+  </div>
+
+  <!-- ARCHIVOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/libros.js"></script> <!-- LLAMADO DE CODIGO LIBROS.JS-->
+  <script src="../js/carrito.js"></script> <!-- LLAMADO DE CODIGO LIBROS.JS-->
+  <!-- SCRIPT QUE PERMITE MOSTRAR EL STOCK DISPONIBLE DEL LIBRO  -->
+  <script>
+    const libro = libros.find(l => l.titulo === "Cien Años de Soledad");
+    document.getElementById("stock").innerText = "Stock disponible: " + libro.stock;
+  </script>
 </body>
 </html>

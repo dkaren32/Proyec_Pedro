@@ -4,22 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Harry Potter</title>
-  <link rel="stylesheet" href="../css/estilo.css">
+  <link rel="stylesheet" href="../css/estilo.css"> <!-- LLAMADO DE LA HOJA DE ESTILOS PERSONALIZADA -->
 </head>
 
 <body>
-<p id="stock"></p>
-<script>
-  const libro = libros.find(l => l.titulo === "Harry Potter");
-  document.getElementById("stock").innerText =
-    "Stock disponible: " + libro.stock;
-</script>
-<script>
-  localStorage.setItem("ultimoLibro", "Harry Potter");
-  localStorage.setItem("urlLibro", "libros/libro5.html");
-</script>
-
-<!-- MENÚ -->
+<!-- BARRA DE NAVEGACIÓN -->
 <nav class="menu">
   <a href="../index.html">Inicio</a>
   <a href="../catalogo.html">Libros</a>
@@ -28,6 +17,7 @@
   <a href="../sitiomapa.html">Mapa del sitio</a>
 </nav>
 
+<!-- BREADCRUMBS -->
 <nav class="breadcrumbs">
   <a href="../index.html">Inicio</a>
   <span>›</span>
@@ -36,52 +26,66 @@
   <span> Harry Potter </span>
 </nav>
 
+<!-- CONTENEDOR DE LOS DETALLES DEL LIBRO -->
 <div class="detalle-container">
 
   <div class="detalle-card">
 
-    <div class="detalle-imagen">
+    <div class="detalle-imagen"> <!-- CONTENEDOR DE LA IMAGEN -->
       <img src="../imagenes/harry.jfif" alt="Harry Potter">
     </div>
 
-    <div class="detalle-info">
+    <div class="detalle-info"> <!-- CONTENEDOR DE LA INFORMACIÓN -->
 
-      <h1>Harry Potter</h1>
+      <h1>Harry Potter</h1> <!-- TITULO DEL LIBRO -->
+      <br>
+      <hr>
+      <p id="stock"></p> <!-- STOCK DEL LIBRO -->
+      <br>
 
+      <!-- RATING DEL LIBRO -->
       <div class="rating">
         ⭐⭐⭐⭐⭐ <span>(542 reseñas)</span>
       </div>
-
+      
+      <!-- CONTENEDOR DE LAS ETIQUETAS PRINCIPALES -->
       <div class="etiquetas">
         <span class="tag venta">MÀS VENDIDO</span>
         <span class="tag envio">Envío Gratis</span>
       </div>
 
+      <!-- CONTENEDOR DE LA DESCRIPCIÓN DEL LIBRO -->
       <p class="descripcion">
         Historia de un joven mago que descubre su verdadero destino en el
         mundo mágico, enfrentando desafíos, amistades y poderosas fuerzas
         oscuras.
       </p>
 
-      <p><strong>Autor:</strong> J. K. Rowling</p>
+      <p> <!-- AUTOR DEL LIBRO-->
+        <strong>Autor:</strong> J. K. Rowling
+      </p>
 
-      <div class="precio-box">
+      <div class="precio-box"> <!-- CONTENEDOR DEL PRECIO DEL LIBRO -->
         <div class="precio">$300</div>
         <div class="cuotas">en 6 cuotas de $50 sin interés</div>
       </div>
 
+      <!-- FORMULARIO PARA AGREGAR EL LIBRO AL CARRITO -->
       <form id="formCompra" data-titulo="Harry Potter" data-precio="300" data-imagen="imagenes/harry.jfif">
 
+        <!-- ETIQUETAS Y CAMPOS DE ENTRADA PARA VALIDAR CANTIDAD Y CONFIRMACION DE COMPRA -->
         <label>Cantidad</label>
         <input type="number" id="cantidad" min="1" max="5" required>
 
         <label>Confirmar compra (SI o NO)</label>
         <input type="text" pattern="SI|NO" required>
 
+        <!-- BOTON PARA ENVIAR FORMULARIO -->
         <button type="submit" class="btn-comprar">
           Agregar al carrito
         </button>
 
+        <!-- ENLACE PARA EL CARRITO -->
         <a href="../carrito.html" class="btn-secundario">
           Ir al Carrito
         </a>
@@ -91,7 +95,23 @@
     </div>
   </div>
 </div>
-<script src="../js/libros.js"></script>
-<script src="../js/carrito.js"></script>
-</body>
+
+  <!-- MODAL QUE INDICA ERROR EN EL STOCK -->
+  <div id="modalMensaje" class="modal-mensaje">
+    <div class="modal-contenido">
+      <p id="textoModal"></p>
+      <button onclick="cerrarModal()">Aceptar</button>
+    </div>
+  </div>
+
+  <!-- ARCHIVOS JS -->
+  <script src="../js/libros.js"></script> <!-- LLAMADO DE CODIGO LIBROS.JS-->
+  <script src="../js/carrito.js"></script> <!-- LLAMADO DE CODIGO LIBROS.JS-->
+    <!-- SCRIPT QUE PERMITE MOSTRAR EL STOCK DISPONIBLE DEL LIBRO  -->
+    <script>
+      const libro = libros.find(l => l.titulo === "Harry Potter");
+      document.getElementById("stock").innerText = "Stock disponible: " + libro.stock;
+    </script>
+
+  </body>
 </html>
