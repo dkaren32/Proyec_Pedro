@@ -11,8 +11,8 @@ function login() {
 
   // Credenciales fijas (solo para fines demostrativos)
   // ⚠️ No recomendado para producción
-  const usuarioCorrecto = "admin";
-  const passwordCorrecto = "1234";
+  const usuarioCorrecto = "pablo";
+  const passwordCorrecto = "12345678";
 
   // Valida si el usuario y la contraseña son correctos
   if (usuario === usuarioCorrecto && password === passwordCorrecto) {
